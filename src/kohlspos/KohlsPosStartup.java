@@ -9,13 +9,19 @@ package kohlspos;
  *
  * @author Mitch
  */
-public class KohlsPos {
+public class KohlsPosStartup {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+       Register register;
        
+       //start a new sale
+       //add items to sale
+       //end sale - print receipt
+       
+       //repeat above for each new sale
         
     }
     
