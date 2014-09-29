@@ -15,9 +15,7 @@ public class KohlsPos {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        DiscountGroup[] addDiscount = {
-                new DiscountStrategy(new FlatRateDiscount()) {};
-            };
+       
         
     }
     
