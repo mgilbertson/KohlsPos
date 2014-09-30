@@ -3,35 +3,57 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 package kohlspos;
 
 /**
+ * This class represents a simulation of a product in a retail sales
+ * organization - responsibilities
  *
- * @author Mitch
+ * NOTE: JavaDoc documentation is incomplete. Need to fix!! - warnings
+ *
+ * @author Mitch, emailAddress(optional)
+ * @version 1.00
  */
 public class Product {
-    private int productUPC;
+
+    private String prodId;
     private double price;
     private String prodDesc;
     private Category category; //optional, enum
+    //strategy component (DIP compliant)
     private DiscountStrategy discount;
+    private int minProdIdCharacters = 2;
 
-    public Product(int productUPC, String prodDesc, double price, Category category, DiscountStrategy discount) {
-        this.productUPC = productUPC;
+    public Product(String prodId, String prodDesc, double price, Category category, DiscountStrategy discount) {
+        this.prodId = prodId;
         this.prodDesc = prodDesc;
         this.price = price;
         this.category = category;
         this.discount = discount;
     }
 
-    public int getProductUPC() {
-        return productUPC;
+    public String getProdId() {
+        return prodId;
     }
 
-    public void setProductUPC(int productUPC) {
-        this.productUPC = productUPC;
+    /**
+     * Sets the id, which is the unique primary key of this item. this method is not yet validated
+     * @param prodId - the unique identifier for this product.
+     * @throws IllegalArguementException if productId is null or less than 2 characters
+     */
+    public final void setProductUPC(final String prodId) {
+        //needs validation
+        if(prodId == null || prodId.length() < 2){
+            throw new IllegalArgumentException();
+        }
+        this.prodId = prodId;
     }
 
+    /**
+     * Gets the description
+     * @return - returns a description
+     */
     public double getPrice() {
         return price;
     }
@@ -63,10 +85,9 @@ public class Product {
     public void setDiscount(DiscountStrategy discount) {
         this.discount = discount;
     }
-    
-    public void addDiscount(DiscountStrategy discount){
-        
+
+    public void addDiscount(DiscountStrategy discount) {
+
     }
-    
-    
+
 }

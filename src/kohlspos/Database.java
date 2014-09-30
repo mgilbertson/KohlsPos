@@ -11,16 +11,22 @@ import java.util.Arrays;
  */
 public class Database {
     
+    Customer[] customers = {
+        new Customer("C1001", "John Smith"),
+        new Customer("C1002", "Bob Jones")
+    };
+    
+    
     Product[] products = {
-                new Product(1001, "blueJeans", 30.99, Category.PANTS, new FlatRateDiscount()),
-                new Product(1002, "blackJeans", 30.99, Category.PANTS, new NoDiscount()),
-                new Product(1003, "blueShirt", 25.99, Category.SHIRT, new PercentDiscount()),
-                new Product(1004, "blueJeans", 30.99, Category.PANTS, new QuantityDiscount()),
+                new Product("P1001", "blueJeans", 30.99, Category.PANTS, new FlatRateDiscount()),
+                new Product("P1002", "blackJeans", 30.99, Category.PANTS, new NoDiscount()),
+                new Product("P1003", "blueShirt", 25.99, Category.SHIRT, new PercentDiscount()),
+                new Product("P1004", "blackShirt", 30.99, Category.SHIRT, new QuantityDiscount()),
             };
     
-    public Product getProduct(int prodUpc){
+    public Product getProduct(String prodId){
         for(int i=0; i<products.length - 1; i++){
-              if (products[i].getProductUPC() == prodUpc){
+              if (products[i].getProdId().equals(prodId)){
                 return products[i];  
          }
               
