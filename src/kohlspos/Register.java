@@ -17,7 +17,7 @@ public class Register {
         this.storeId = storeId;
     }
     
-    public final void startNewSale(String custId, Database db, ReceiptConsoleOutput output){
+    public final void startNewSale(String custId, DatabaseStrategy db, ReceiptConsoleOutput output){
         receipt = new Receipt(custId, storeId, db, output);
     }
     

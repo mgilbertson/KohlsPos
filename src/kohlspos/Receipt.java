@@ -11,16 +11,16 @@ package kohlspos;
  */
 public class Receipt {
     private LineItem[] lineItems = new LineItem[0];
-    private ReceiptConsoleOutput output;
-    private Database db;
-    private Customer customer;
-    private Store store;
+    private final ReceiptOutputStrategy output;
+    private final DatabaseStrategy db;
+    private final Customer customer;
+    private final Store store;
     public double subTotal;
     public double grandTotal;
     public double savingsTotal;
 
     
-    public Receipt(String custId, String storeId, Database db, ReceiptConsoleOutput output){
+    public Receipt(String custId, String storeId, DatabaseStrategy db, ReceiptConsoleOutput output){
         customer = db.getCustomer(custId);
         store = db.getStore(storeId);
         this.db = db;
@@ -40,7 +40,6 @@ public class Receipt {
             subTotal += lineItem.getItemTotal();
             savingsTotal += lineItem.getAmountSaved();
         }
-        
         grandTotal = subTotal + (subTotal * store.getTaxPercent());
     }
 

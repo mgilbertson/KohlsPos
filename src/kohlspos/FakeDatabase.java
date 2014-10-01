@@ -9,7 +9,7 @@ import java.util.Arrays;
  *
  * @author Mitch
  */
-public class Database {
+public class FakeDatabase implements DatabaseStrategy{
     
     private Customer[] customers = {
         new Customer("C1001", "John Smith"),
@@ -17,10 +17,10 @@ public class Database {
     };
     
     private Product[] products = {
-        new Product("P1001", "blueJeans ", 30.99, Category.PANTS, new FlatRateDiscount()),
+        new Product("P1001", "blueJeans ", 30.99, Category.PANTS, new FlatRateDiscount(2)),
         new Product("P1002", "blackJeans", 30.99, Category.PANTS, new NoDiscount()),
-        new Product("P1003", "blueShirt ", 25.99, Category.SHIRT, new PercentDiscount()),
-        new Product("P1004", "blackShirt", 30.99, Category.SHIRT, new QuantityDiscount()),
+        new Product("P1003", "blueShirt ", 25.99, Category.SHIRT, new PercentDiscount(.1)),
+        new Product("P1004", "blackShirt", 30.99, Category.SHIRT, new QuantityDiscount(.25, 2)),
     };
     
     private Store[] stores = {
@@ -29,6 +29,7 @@ public class Database {
     };
     
 
+    @Override
     public Product getProduct(String prodId) {
         for (Product product : products) {
             if (prodId.equals(product.getProdId())) {
@@ -38,6 +39,7 @@ public class Database {
         throw new IllegalArgumentException();
     }
     
+    @Override
     public Customer getCustomer(String custId){
         for (Customer customer : customers) {
             if (custId.equals(customer.getCustId())) {
@@ -47,6 +49,7 @@ public class Database {
         throw new IllegalArgumentException();
     }
     
+    @Override
     public Store getStore(String storeId){
         for (Store store : stores){
             if (storeId.equals(store.getStoreId())){

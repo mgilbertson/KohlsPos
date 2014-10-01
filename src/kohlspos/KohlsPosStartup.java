@@ -23,9 +23,14 @@ public class KohlsPosStartup {
        
        //repeat above for each new sale
        
-        register.startNewSale("C1001", new Database(), new ReceiptConsoleOutput());
+        register.startNewSale("C1001", new FakeDatabase(), new ReceiptConsoleOutput());
         register.addItemToSale("P1004", 2);
-        register.addItemToSale("P1003", 2);
+        register.addItemToSale("P1003", 1);
+        register.endSale();
+        
+        register.startNewSale("C1002", new FakeDatabase(), new ReceiptConsoleOutput());
+        register.addItemToSale("P1001", 4);
+        register.addItemToSale("P1002", 1);
         register.endSale();
         
         
