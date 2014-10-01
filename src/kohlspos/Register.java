@@ -11,13 +11,14 @@ package kohlspos;
  */
 public class Register {
     private Receipt receipt;
-    private Store store;
-    private double subTotal;
-    private double grandTotal;
+    private String storeId;
     
-
+    public Register(String storeId){
+        this.storeId = storeId;
+    }
+    
     public final void startNewSale(String custId, Database db, ReceiptConsoleOutput output){
-        receipt = new Receipt(custId, db, output);
+        receipt = new Receipt(custId, storeId, db, output);
     }
     
     public final void addItemToSale(String prodId, int qty){
@@ -25,7 +26,7 @@ public class Register {
     }
     
     public final void endSale(){
-        receipt.output();
+        receipt.outputReceipt();
     }
     
 }

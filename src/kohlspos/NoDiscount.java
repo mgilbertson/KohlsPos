@@ -10,12 +10,13 @@ package kohlspos;
  * @author Mitch
  */
 public class NoDiscount implements DiscountStrategy{
-    private Product product;
 
     @Override
-    public void discount() {
+    public double getDiscount(double price, int qty) {
+        return price;
     }
-    
+
+
 
     
 }

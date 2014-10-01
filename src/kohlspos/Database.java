@@ -13,18 +13,23 @@ public class Database {
     
     private Customer[] customers = {
         new Customer("C1001", "John Smith"),
-        new Customer("C1002", "Bob Jones")
+        new Customer("C1002", "Bob Jones ")
     };
     
     private Product[] products = {
-                new Product("P1001", "blueJeans", 30.99, Category.PANTS, new FlatRateDiscount()),
-                new Product("P1002", "blackJeans", 30.99, Category.PANTS, new NoDiscount()),
-                new Product("P1003", "blueShirt", 25.99, Category.SHIRT, new PercentDiscount()),
-                new Product("P1004", "blackShirt", 30.99, Category.SHIRT, new QuantityDiscount()),
-            };
+        new Product("P1001", "blueJeans ", 30.99, Category.PANTS, new FlatRateDiscount()),
+        new Product("P1002", "blackJeans", 30.99, Category.PANTS, new NoDiscount()),
+        new Product("P1003", "blueShirt ", 25.99, Category.SHIRT, new PercentDiscount()),
+        new Product("P1004", "blackShirt", 30.99, Category.SHIRT, new QuantityDiscount()),
+    };
+    
+    private Store[] stores = {
+        new Store("S1001", .05),
+        new Store("S1002", .1)
+    };
     
 
-    public Product getProductById(String prodId) {
+    public Product getProduct(String prodId) {
         for (Product product : products) {
             if (prodId.equals(product.getProdId())) {
                 return product;
@@ -33,7 +38,7 @@ public class Database {
         throw new IllegalArgumentException();
     }
     
-    public Customer getCustomerById(String custId){
+    public Customer getCustomer(String custId){
         for (Customer customer : customers) {
             if (custId.equals(customer.getCustId())) {
                 return customer;
@@ -42,14 +47,14 @@ public class Database {
         throw new IllegalArgumentException();
     }
     
-    public Customer[] getCustomers() {
-        return customers;
+    public Store getStore(String storeId){
+        for (Store store : stores){
+            if (storeId.equals(store.getStoreId())){
+                return store;
+            }
+        }
+        throw new IllegalArgumentException();
     }
-
-    public Product[] getProducts() {
-        return products;
-    }
-    
     
     
      

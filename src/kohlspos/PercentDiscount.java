@@ -10,13 +10,16 @@ package kohlspos;
  * @author Mitch
  */
 public class PercentDiscount implements DiscountStrategy {
-    private double discountPercent;
-    private Product product;
+    private double discountPercent = .1;
     private double adjustedPrice;
 
     @Override
-    public void discount() {
+    public double getDiscount(double price, int qty) {
+        adjustedPrice = price - (price * discountPercent);
+        return adjustedPrice;
     }
+
+
 
     
 }

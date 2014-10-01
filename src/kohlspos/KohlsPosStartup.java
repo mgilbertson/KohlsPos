@@ -15,7 +15,7 @@ public class KohlsPosStartup {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-       Register register = new Register();
+       Register register = new Register("S1001");
        
        //start a new sale
        //add items to sale
@@ -24,14 +24,11 @@ public class KohlsPosStartup {
        //repeat above for each new sale
        
         register.startNewSale("C1001", new Database(), new ReceiptConsoleOutput());
-        register.addItemToSale("P1001", 2);
-        register.addItemToSale("P1002", 1);
+        register.addItemToSale("P1004", 2);
+        register.addItemToSale("P1003", 2);
         register.endSale();
         
-        register.startNewSale("C1001", new Database(), new ReceiptConsoleOutput());
-        register.addItemToSale("P1001", 2);
-        register.addItemToSale("P1002", 1);
-        register.endSale();
+        
     }
     
 }

@@ -11,13 +11,19 @@ package kohlspos;
  */
 public class Store {
     private String storeId;
-    private String storeName;
-    private String state;
+    private double taxPercent;
 
-    public Store(String storeId, String storeName, String state) {
+    public Store(String storeId, double taxPercent) {
         this.storeId = storeId;
-        this.storeName = storeName;
-        this.state = state;
+        this.taxPercent = taxPercent;
+    }
+    
+    public String getStoreId(){
+        return storeId;
+    }
+    
+    public double getTaxPercent(){
+        return taxPercent;
     }
     
     

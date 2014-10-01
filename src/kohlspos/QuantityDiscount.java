@@ -17,7 +17,7 @@ public class QuantityDiscount implements DiscountStrategy {
     @Override
     public double getDiscount(double price, int qty) {
         if (qty == requiredAmount){
-            adjustedPrice = price * discountMultiplier;
+            adjustedPrice = price - (price * discountMultiplier);
         }
         return adjustedPrice;
     }

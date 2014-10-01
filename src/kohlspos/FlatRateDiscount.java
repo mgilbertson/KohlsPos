@@ -11,13 +11,15 @@ package kohlspos;
  */
 public class FlatRateDiscount implements DiscountStrategy{
     
-    private double discountAmount;
+    private double discountAmount = 2;
     private Product product;
     private double adjustedPrice;
 
+
     @Override
-    public void discount() {
-        
+    public double getDiscount(double price, int qty) {
+        adjustedPrice = price - discountAmount;
+        return adjustedPrice;
     }
 
     
