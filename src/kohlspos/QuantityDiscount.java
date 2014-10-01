@@ -10,13 +10,16 @@ package kohlspos;
  * @author Mitch
  */
 public class QuantityDiscount implements DiscountStrategy {
-    private int requiredAmount;
-    private double discountAmount;
-    private Product product;
-    private double adjustedPrice;
+    private int requiredAmount = 2;
+    private double discountMultiplier = .25;
+    private double adjustedPrice = 0;
 
     @Override
-    public void discount() {
+    public double getDiscount(double price, int qty) {
+        if (qty == requiredAmount){
+            adjustedPrice = price * discountMultiplier;
+        }
+        return adjustedPrice;
     }
 
     

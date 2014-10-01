@@ -11,26 +11,46 @@ import java.util.Arrays;
  */
 public class Database {
     
-    Customer[] customers = {
+    private Customer[] customers = {
         new Customer("C1001", "John Smith"),
         new Customer("C1002", "Bob Jones")
     };
     
-    
-    Product[] products = {
+    private Product[] products = {
                 new Product("P1001", "blueJeans", 30.99, Category.PANTS, new FlatRateDiscount()),
                 new Product("P1002", "blackJeans", 30.99, Category.PANTS, new NoDiscount()),
                 new Product("P1003", "blueShirt", 25.99, Category.SHIRT, new PercentDiscount()),
                 new Product("P1004", "blackShirt", 30.99, Category.SHIRT, new QuantityDiscount()),
             };
     
-    public Product getProduct(String prodId){
-        for(int i=0; i<products.length - 1; i++){
-              if (products[i].getProdId().equals(prodId)){
-                return products[i];  
-         }
-              
+
+    public Product getProductById(String prodId) {
+        for (Product product : products) {
+            if (prodId.equals(product.getProdId())) {
+                return product;
+            }
         }
-        return null;
-    } 
+        throw new IllegalArgumentException();
+    }
+    
+    public Customer getCustomerById(String custId){
+        for (Customer customer : customers) {
+            if (custId.equals(customer.getCustId())) {
+                return customer;
+            }
+        }
+        throw new IllegalArgumentException();
+    }
+    
+    public Customer[] getCustomers() {
+        return customers;
+    }
+
+    public Product[] getProducts() {
+        return products;
+    }
+    
+    
+    
+     
 }

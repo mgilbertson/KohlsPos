@@ -36,13 +36,13 @@ public class Product {
     public String getProdId() {
         return prodId;
     }
-
+    
     /**
      * Sets the id, which is the unique primary key of this item. this method is not yet validated
      * @param prodId - the unique identifier for this product.
      * @throws IllegalArguementException if productId is null or less than 2 characters
      */
-    public final void setProductUPC(final String prodId) {
+    public final void setProdId(final String prodId) {
         //needs validation
         if(prodId == null || prodId.length() < 2){
             throw new IllegalArgumentException();
@@ -78,8 +78,8 @@ public class Product {
         this.category = category;
     }
 
-    public DiscountStrategy getDiscount() {
-        return discount;
+    public double getDiscount(int qty) {
+        return discount.getDiscount(price, qty);
     }
 
     public void setDiscount(DiscountStrategy discount) {

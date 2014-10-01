@@ -11,4 +11,10 @@ package kohlspos;
  */
 public class ReceiptConsoleOutput {
     
+    public void printCustomerInfo(Customer customer){
+        System.out.println("Customer: " + customer.getName() + " || Customer ID: " + customer.getCustId());
+    }
+    public void printLineItems(LineItem[] items){
+        
+    }
 }

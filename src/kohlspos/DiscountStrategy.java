@@ -10,5 +10,5 @@ package kohlspos;
  * @author Mitch
  */
 public interface DiscountStrategy {
-    public abstract void discount();
+    public abstract double getDiscount(double price, int qty);
 }
